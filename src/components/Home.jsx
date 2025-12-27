@@ -10,7 +10,7 @@ function Home({ posts }) {
     <div className="content-container">
       <section className="hero-section">
         <img
-          src="https://api.dicebear.com/7.x/miniavs/svg?seed=Merthon"
+          src="/public/mer.jpg"
           alt="Avatar"
           className="hero-avatar"
         />
@@ -26,13 +26,13 @@ function Home({ posts }) {
         </p>
 
         <div className="hero-socials">
-          <a href="https://github.com">
+          <a href="https://github.com/Merthon">
             <FaGithub />
           </a>
-          <a href="https://instagram.com">
+          <a href="https://instagram.com/leomerthon">
             <FaInstagram />
           </a>
-          <a href="mailto:your@email.com">
+          <a href="mailto:imchenxing42@gmail.com">
             <FaEnvelope />
           </a>
         </div>
