@@ -1,0 +1,447 @@
+/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  background-color: #fff;
+  color: #1a1a1a; /* 更深一点的黑色，显质感 */
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased; /* 让字体渲染更平滑 */
+}
+
+/* --- 1. 全局大容器：控制整体最大宽度 --- */
+/* 这决定了导航栏有多宽。1200px 足够大气，左右留白会变少 */
+.app-wrapper {
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 0 40px; /* 左右保留 40px 的安全距离 */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+}
+
+/* --- 2. 核心内容容器：限制阅读区的宽度 --- */
+/* 简介、文章列表都放在这里面，避免文字太长 */
+.content-container {
+  max-width: 720px; /* 黄金阅读宽度 */
+  margin: 0 auto;   /* 绝对居中 */
+  width: 100%;
+}
+
+/* --- 3. 导航栏：严谨的大气风格 --- */
+.site-header {
+  display: flex;
+  justify-content: space-between; /* 彻底撑开左右 */
+  align-items: center;
+  height: 100px; /* 固定高度，更有秩序感 */
+  margin-bottom: 60px; /* 与下方内容的距离 */
+}
+
+/* 左侧 Logo */
+.branding-small {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+  font-size: 20px; /* 字体稍微加大 */
+  letter-spacing: -0.5px; /* 紧凑一点更现代 */
+  gap: 12px;
+}
+.branding-small img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #f5f5f5; /* 增加一点微弱的边框细节 */
+}
+
+/* 右侧导航 */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px; /* 增加间距，让链接之间更透气 */
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: #555;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+/* 鼠标悬停时的微动效 */
+.site-nav a:hover, .site-nav a.active {
+  color: #000;
+}
+.nav-separator { color: #e0e0e0; font-weight: 300; }
+
+/* GitHub 图标微调 */
+.nav-icon {
+  font-size: 27px;
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+.nav-icon:hover { color: #000; transform: scale(1.1); transition: transform 0.2s; }
+
+/* --- 4. Hero Section (个人主页) --- */
+.hero-section {
+  text-align: center;
+  /* 1. 减少这里的数值，让 Recent Posts 往上提 */
+  margin-bottom: 60px; /* 之前是 100px，现在改小 */
+  padding-top: 20px;
+}
+.hero-avatar {
+  width: 140px; /* 头像加大 */
+  height: 140px;
+  border-radius: 50%;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* 加一点非常淡的阴影，增加立体感 */
+}
+.hero-name {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 0 0 16px 0;
+  letter-spacing: -1px;
+}
+.hero-bio {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+.hero-socials {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  font-size: 22px;
+}
+.hero-socials a { color: #444; transition: color 0.2s; }
+.hero-socials a:hover { color: #000; }
+
+/* --- 5. Recent Posts 列表 (严谨对齐版) --- */
+.recent-posts-section {
+  width: 100%;
+}
+.section-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #999;
+  font-weight: 700;
+  
+  /* 2. 减少标题与第一篇文章的间距 */
+  margin-bottom: 25px; 
+  
+  display: inline-block;
+  width: 100%;
+}
+.recent-list { list-style: none; padding: 0; margin: 0; }
+.recent-item { margin-bottom: 30px; }
+
+.recent-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  text-decoration: none;
+}
+
+.recent-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+  transition: color 0.2s;
+}
+
+/* 悬停效果：标题变蓝 */
+.recent-link:hover .recent-title { color: #2563eb; }
+
+.recent-date {
+  font-size: 14px;
+  color: #888;
+  font-family: monospace; /* 用等宽字体显示日期，更像极客博客 */
+}
+
+/* --- Footer --- */
+.site-footer {
+  text-align: center;
+  padding: 60px 0;
+  color: #aaa;
+  font-size: 13px;
+  border-top: 1px solid #f9f9f9;
+  margin-top: 80px;
+}
+
+/* 光标样式 */
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  font-weight: 100;
+  animation: blink 1s step-end infinite; /* 让它每秒闪一次 */
+  color: #000; /* 光标颜色 */
+}
+
+/* 定义闪烁动画：一会儿有透明度，一会儿没有 */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* 标签容器 */
+.post-tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* 单个标签样式 */
+.tag-pill {
+  background-color: #f3f4f6; /* 浅灰背景 */
+  color: #555;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 4px; /* 圆角矩形 */
+  font-weight: 500;
+  font-family: monospace; /* 代码风格字体 */
+  transition: all 0.2s;
+}
+
+.tag-pill:hover {
+  background-color: #e5e7eb;
+  color: #000;
+}
+/* 1. 外层容器：比之前的 720px 宽，为了放得下侧边栏 */
+.layout-container {
+  max-width: 1000px; /* 文章 720 + 间距 + 侧边栏 */
+  margin: 0 auto;
+  display: flex; /* 开启 Flex 布局 */
+  gap: 60px;     /* 左右间距 */
+  position: relative;
+}
+
+/* 2. 左侧文章区：保持原来的阅读宽度 */
+.post-content {
+  flex: 1; /* 占据剩余空间 */
+  max-width: 720px; /* 锁死最大宽度，保证阅读体验 */
+  min-width: 0; /* 防止代码块撑破容器 */
+}
+
+/* 3. 右侧侧边栏区 */
+.toc-sidebar {
+  width: 240px; /* 固定宽度 */
+  display: none; /* 默认隐藏 (移动端优先) */
+}
+
+/* 4. 只有在屏幕宽度大于 1100px 时才显示侧边栏 */
+@media (min-width: 1100px) {
+  .toc-sidebar {
+    display: block;
+  }
+}
+
+/* 5. 粘性定位盒子：让目录滑到顶端时吸附住 */
+.toc-sticky-box {
+  position: sticky;
+  top: 40px; /* 距离顶部的距离 */
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* --- 目录样式美化 --- */
+.toc-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #999;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 2px solid #f0f0f0; /* 左侧的一条灰线 */
+}
+
+.toc-item {
+  margin-bottom: 8px;
+}
+
+.toc-item a {
+  text-decoration: none;
+  color: #666;
+  font-size: 14px;
+  display: block;
+  padding-left: 15px; /* 文字离左边线的距离 */
+  transition: all 0.2s;
+  border-left: 2px solid transparent; /* 预留高亮条位置 */
+  margin-left: -2px; /* 盖住父级的灰线 */
+}
+
+.toc-item a:hover {
+  color: #000;
+  border-left-color: #000; /* 悬停时左边变黑 */
+}
+
+/* 层级缩进 */
+.level-1 { padding-left: 0; font-weight: 600; }
+.level-2 { padding-left: 0; }
+.level-3 { padding-left: 10px; font-size: 13px; }
+
+/* 给 Markdown 里的所有标题添加滚动边距 */
+/* 这样跳转时，标题上方会留出 80px 的空间，不会贴顶 */
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3 {
+  scroll-margin-top: 80px;
+}
+
+/* 全局开启丝滑滚动 (可选，如果 JS 里没写 smooth 这里可以兜底) */
+html {
+  scroll-behavior: smooth;
+}
+/* --- 代码块美化：Mac 风格的深色主题 --- */
+.markdown-body pre {
+  background-color: #282c34 !important; /* 强制深色背景 */
+  border-radius: 8px;      /* 圆角 */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* 漂亮的投影 */
+  padding-top: 50px;       /* 给顶部留出空间放“红黄绿”点 */
+  position: relative;      /* 为了定位红黄绿点 */
+  margin: 30px 0;          /* 上下间距 */
+  border: 1px solid rgba(0,0,0,0.1); /* 微弱的边框 */
+  overflow: hidden;        /* 防止内容溢出圆角 */
+}
+
+/* 画出 Mac 风格的红黄绿三个点 */
+.markdown-body pre::before {
+  content: " ";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff5f56; /* 红色点 */
+  box-shadow: 
+    20px 0 0 #ffbd2e, /* 黄色点 (利用阴影复制) */
+    40px 0 0 #27c93f; /* 绿色点 */
+  z-index: 2;
+}
+
+/* 可以在红黄绿点后面加一个假的标题栏背景 (可选) */
+.markdown-body pre::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05); /* 淡淡的透亮层 */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* 调整代码内容的字体和位置 */
+.markdown-body pre code {
+  font-family: 'Fira Code', monospace; /* 使用刚才引入的字体 */
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 0 20px 20px 20px; /* 调整内部间距 */
+  display: block; /* 必须 block 才能撑开 */
+  overflow-x: auto; /* 横向滚动条 */
+}
+
+/* 优化滚动条样式 (Chrome/Safari) */
+.markdown-body pre code::-webkit-scrollbar {
+  height: 8px;
+}
+.markdown-body pre code::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+.markdown-body pre code::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* --- 分页器样式 (极简圆形风格) --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;          /* 按钮之间的间距紧凑一点 */
+  margin-top: 80px;  /* 离上方文章列表远一点，更大气 */
+  margin-bottom: 40px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* 基础按钮样式 (针对数字按钮设计) */
+.page-btn {
+  /* 清除默认边框和背景 */
+  border: none;
+  background: transparent;
+  
+  /* 字体设置 */
+  font-size: 14px;
+  color: #666;      /* 默认灰色，不抢眼 */
+  font-weight: 500;
+
+  /* 形状设置：固定宽高的圆形 */
+  width: 36px;
+  height: 36px;
+  border-radius: 50%; /* 变成正圆 */
+  
+  /* 文字居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  cursor: pointer;
+  transition: all 0.2s ease; /* 平滑过渡 */
+}
+
+/* 鼠标悬停状态 (非禁用，非选中) */
+/* 鼠标放上去出现一个淡淡的灰色背景圆圈 */
+.page-btn:hover:not(:disabled):not(.active) {
+  background-color: #f5f5f5;
+  color: #000;
+}
+
+/* 当前选中的页码 (黑底白字实心圆) */
+.page-btn.active {
+  background-color: #1a1a1a; /* 深黑色背景 */
+  color: #fff;               /* 白色文字 */
+  font-weight: 600;          /* 加粗一点 */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* 加一点点立体感 */
+}
+
+/* --- 上一页/下一页 按钮特殊处理 --- */
+/* 它们不需要是圆形，而是纯文字链接的感觉 */
+.nav-btn {
+  width: auto;       /* 取消固定宽度 */
+  height: auto;      /* 取消固定高度 */
+  border-radius: 0;  /* 取消圆角 */
+  padding: 8px 16px; /* 给点内边距 */
+  font-weight: 600;  /* 字体稍微重一点 */
+  color: #555;
+}
+
+/* 上一页/下一页 悬停效果 (只变色，不加背景) */
+.nav-btn:hover:not(:disabled) {
+  background-color: transparent; /* 保持透明背景 */
+  color: #000; /* 变纯黑 */
+}
+
+/* 禁用状态 (比如在第一页时的 "Prev") */
+.page-btn:disabled {
+  color: #e0e0e0; /* 极淡的灰色 */
+  cursor: not-allowed;
+}
