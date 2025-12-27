@@ -62,7 +62,7 @@ function App() {
       <header className="site-header">
         {/* 左上角小 Logo */}
         <Link to="/" className="branding-small">
-          <img src="/public/logo.png" alt="logo" />
+          <img src="/logo.png" alt="logo" />
           <span>Merthon</span>
         </Link>
 
@@ -76,7 +76,7 @@ function App() {
           </Link>
           <Link to="/projects">Projects</Link>
           <span className="nav-separator">|</span>
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="nav-icon">
+          <a href="https://github.com/Merthon" target="_blank" rel="noreferrer" className="nav-icon">
             <FaGithub />
           </a>
         </nav>

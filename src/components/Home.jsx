@@ -10,7 +10,7 @@ function Home({ posts }) {
     <div className="content-container">
       <section className="hero-section">
         <img
-          src="/public/mer.jpg"
+          src="/mer.jpg"
           alt="Avatar"
           className="hero-avatar"
         />
