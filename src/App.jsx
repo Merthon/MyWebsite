@@ -14,12 +14,12 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    const modules = import.meta.glob('./posts/*.md', { query: '?raw', import: 'default' });
+    const modules = import.meta.glob('./posts/*.md', { query: '?raw', import: 'default', eager: true});
 
-    const loadPosts = async () => {
+    const loadPosts =  () => {
       const postsArray = [];
       for (const path in modules) {
-        const content = await modules[path]();
+        const content = modules[path];
         const parsed = fm(content);
         const fileName = path.split('/').pop().replace('.md', '');
 
@@ -76,7 +76,12 @@ function App() {
           </Link>
           <Link to="/projects">Projects</Link>
           <span className="nav-separator">|</span>
-          <a href="https://github.com/Merthon" target="_blank" rel="noreferrer" className="nav-icon">
+          <a
+            href="https://github.com/Merthon"
+            target="_blank"
+            rel="noreferrer"
+            className="nav-icon"
+          >
             <FaGithub />
           </a>
         </nav>
